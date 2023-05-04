@@ -9,22 +9,46 @@ body{
 h1{
     font-family: 'Aldrich', sans-serif;
     /*font-family: 'Chathura', sans-serif;*/
-    font-size: 25vh;
     text-align: center;
-    line-height: 5vh;
+    line-height: 0;
     color: white;
     display: flex;
     margin-left: auto;
     margin-right: auto;
    
 }
+@media screen and (max-width: 700px) {
+    h1{
+        font-size: 15vh;
+    }
+}
+@media screen and (min-width: 700px) {
+    h1{
+        font-size: 20vw;
+    }
+}
 
-.title{
+   .title{
     display: flex;
-    width: 80%;
     margin: auto;
-    margin-top: 25vh;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
     perspective: 800px;
+} 
+@media screen and (max-width: 700px) {
+    .title{
+        height: 80%;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 700px) {
+    .title{
+        width: 80%;
+        margin-top: 15%;
+        flex-direction: row;
+    }
 }
 
 .elem1{
@@ -38,4 +62,42 @@ h1{
 }
 .elem4{
     border: 1px solid rgb(64, 217, 34);
+}
+
+.pic{
+    position: absolute;
+    z-index: 4;
+    width: 45%;
+    border: 1px solid rgb(64, 217, 34);
+}
+@media screen and (max-width: 700px) {
+    .pic{
+        width: 80%;
+        min-width: 500px;
+        flex-direction: column;
+    }
+}
+@media screen and (min-width: 700px) {
+    .pic{
+        height: 100%;
+    }
+}
+
+img{
+    width: 100%;
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
 }
