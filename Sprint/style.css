@@ -2,8 +2,16 @@ html {
     background: url("../Hal_Room.jpg") no-repeat center fixed;
     background-size: cover;
 }
-body{
-    
+
+@media screen and (max-width: 700px) {
+    .middle{
+        transform: translateY(-2vh);
+    }
+}
+@media screen and (min-width: 700px) {
+    .middle{
+        transform: translateY(-21vh);
+    }
 }
 
 h1{
@@ -15,6 +23,8 @@ h1{
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
    
 }
 @media screen and (max-width: 700px) {
@@ -28,25 +38,59 @@ h1{
     }
 }
 
-   .title{
+h2{
+    font-family: 'Aldrich', sans-serif;
+    text-align: center;
+    font-size: 5vh;
+    line-height: 5vh;
+    color: white;
     display: flex;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(64, 217, 34);
+
+}
+
+h3{
+    display: block;
+    font-family: 'Chathura', sans-serif;
+    font-size: 3.5vh;
+    line-height: 0;
+    padding: none;
+    color: white;
+    margin: none;
+    border: 1px solid rgb(64, 217, 34);
+}
+
+.header{
+    position: relative;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid rgb(64, 217, 34);
+}
+
+
+.title{
+    display: flex;
     justify-content: center;
-    justify-items: center;
     align-content: center;
     align-items: center;
     perspective: 800px;
+    border: 1px solid rgb(64, 217, 34);
 } 
 @media screen and (max-width: 700px) {
     .title{
-        height: 80%;
+        height: 80vh;
+        width: auto;
+        margin-top: -4vh;
         flex-direction: column;
     }
 }
 @media screen and (min-width: 700px) {
     .title{
-        width: 80%;
-        margin-top: 15%;
+        width: 100%;
+        margin-top: 15vh;
         flex-direction: row;
     }
 }
@@ -59,22 +103,31 @@ h1{
 }
 .elem3{
     border: 1px solid rgb(64, 217, 34);
+
 }
 .elem4{
     border: 1px solid rgb(64, 217, 34);
 }
+.elemFill{
+    margin-bottom: 22vh;
+    margin-right: 6vw;
+    margin-left: 6vw;
+}
+
 
 .pic{
     position: absolute;
+    margin-left: auto;
+    margin-right: auto;
     z-index: 4;
     width: 45%;
     border: 1px solid rgb(64, 217, 34);
 }
 @media screen and (max-width: 700px) {
     .pic{
-        width: 80%;
+        width: 80vw;
         min-width: 500px;
-        flex-direction: column;
+        transform: translate(0px,3vh);
     }
 }
 @media screen and (min-width: 700px) {
@@ -89,15 +142,12 @@ img{
 }
 @keyframes float {
 	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 		transform: translatey(0px);
 	}
 	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
 		transform: translatey(-20px);
 	}
 	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
 		transform: translatey(0px);
 	}
 }

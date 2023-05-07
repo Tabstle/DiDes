@@ -12,27 +12,35 @@ document.addEventListener('mousemove', function(e) {
 	// Get center of page
 	    const targetX = targetCoords.left + (el.offsetWidth / 2);
 	    const targetY = targetCoords.top + (el.offsetHeight / 2);
-        const angleX = (targetY - y) / 20;
-	    const angleY = (targetX - x) / -40;
+        const angleX = (targetY - y) / 40;
+	    const angleY = (targetX - x) / -80;
         let offsetX ,offsetY;
         if (el.classList.contains("elem1")) {
-            offsetX = 30;
-            offsetY = -5;
+            offsetX = -15;
+            offsetY = -10;
+            displaceX = 4;
+            displaceY = 9;
         }
         else if (el.classList.contains("elem2")) {
-            offsetX = 40;
-            offsetY = -45;
+            offsetX = 20;
+            offsetY = -30;
+            displaceX = -4;
+            displaceY = 2;
         }
         else if (el.classList.contains("elem3")) {
-            offsetX = -10;
+            offsetX = -20;
             offsetY = 20;
+            displaceX = 0;
+            displaceY = 10;
         }
         else if (el.classList.contains("elem4")) {
-            offsetX = 40;
-            offsetY = 10;
+            offsetX = 25;
+            offsetY = 30;
+            displaceX = -8;
+            displaceY = 7;
         }
-	    el.style.transform = 'rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
-        console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)')
+	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
+        console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
     })
 	
