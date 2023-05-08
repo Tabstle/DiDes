@@ -2,6 +2,9 @@ html {
     background: url("../Hal_Room.jpg") no-repeat center fixed;
     background-size: cover;
 }
+body{
+    overflow: hidden;
+}
 
 @media screen and (max-width: 700px) {
     .middle{
@@ -20,7 +23,6 @@ h1{
     text-align: center;
     line-height: 0;
     color: white;
-    display: flex;
     margin-left: auto;
     margin-right: auto;
     margin-top: 8vh;
@@ -44,7 +46,6 @@ h2{
     font-size: 5vh;
     line-height: 5vh;
     color: white;
-    display: flex;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid rgb(64, 217, 34);
