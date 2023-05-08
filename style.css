@@ -46,10 +46,22 @@ h2{
     font-size: 5vh;
     line-height: 5vh;
     color: white;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid rgb(64, 217, 34);
-
+    /*border: 1px solid rgb(64, 217, 34);*/
+}
+@media screen and (max-width: 700px) {
+    h2{
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    }
+}
+@media screen and (min-width: 700px) {
+    h2{
+        width: auto;
+        position: relative;
+        transform: translate(-10vw, 10vw)
+    }
 }
 
 h3{
@@ -60,7 +72,7 @@ h3{
     padding: none;
     color: white;
     margin: none;
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 
 .header{
@@ -68,7 +80,7 @@ h3{
     width: auto;
     display: flex;
     justify-content: space-between;
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 
 
@@ -78,7 +90,7 @@ h3{
     align-content: center;
     align-items: center;
     perspective: 800px;
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/;
 } 
 @media screen and (max-width: 700px) {
     .title{
@@ -100,17 +112,17 @@ h3{
 }
 
 .elem1{
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 .elem2{
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 .elem3{
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 
 }
 .elem4{
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 .elemFill{
     margin-bottom: 22vh;
@@ -124,7 +136,7 @@ h3{
     margin-left: auto;
     margin-right: auto;
     z-index: 4;
-    border: 1px solid rgb(64, 217, 34);
+    /*border: 1px solid rgb(64, 217, 34);*/
 }
 @media screen and (max-width: 700px) {
     .pic{

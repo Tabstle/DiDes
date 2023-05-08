@@ -8,7 +8,39 @@ window.mobileCheck = function () {
 
 isMobile = window.mobileCheck();
 if (isMobile){
-    allowance;
+    
+    const target = document.querySelectorAll('.move');
+
+    target.forEach(el => {
+        const targetCoords = el.getBoundingClientRect();
+        let offsetX ,offsetY;
+        if (el.classList.contains("elem1")) {
+            offsetX = -15;
+            offsetY = -10;
+            displaceX = -10;
+            displaceY = 12;
+        }
+        else if (el.classList.contains("elem2")) {
+            offsetX = 20;
+            offsetY = -30;
+            displaceX = 12;
+            displaceY = 2;
+        }
+        else if (el.classList.contains("elem3")) {
+            offsetX = -20;
+            offsetY = 20;
+            displaceX = -16;
+            displaceY = 10;
+        }
+        else if (el.classList.contains("elem4")) {
+            offsetX = 25;
+            offsetY = 30;
+            displaceX = 9;
+            displaceY = -8;
+        }
+        el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX ) + 'deg) rotateY('+ (offsetY ) + 'deg)';
+        console.log('rotateX('+ (offsetX) + 'deg) rotateY('+ (offsetY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)');
+    });
 }
 else{
     window.addEventListener('mousemove', mouseOrientation);
@@ -30,7 +62,7 @@ function allowance() {
       // Handle regular non iOS 13+ devices.
       window.addEventListener('devicemotion', handleOrientation);
     }
-  }
+  };
 
 
 function handleOrientation(event) {
@@ -38,34 +70,35 @@ function handleOrientation(event) {
     const beta = event.beta;
     const gamma = event.gamma;
 
+    const target = document.querySelectorAll('.move');
+
     target.forEach(el => {
-        const angleX = gamma/ 40;
-	    const angleY = beta/ -80;
-        let offsetX ,offsetY;
-        if (el.classList.contains("elem1")) {
-            offsetX = -15;
-            offsetY = -10;
-            displaceX = -8;
-            displaceY = 12;
-        }
-        else if (el.classList.contains("elem2")) {
-            offsetX = 20;
-            offsetY = -30;
-            displaceX = 4;
-            displaceY = 2;
-        }
-        else if (el.classList.contains("elem3")) {
-            offsetX = -20;
-            offsetY = 20;
-            displaceX = -4;
-            displaceY = 5;
-        }
-        else if (el.classList.contains("elem4")) {
-            offsetX = 25;
-            offsetY = 30;
-            displaceX = 9;
-            displaceY = 0;
-        }
+        const targetCoords = el.getBoundingClientRect();
+    let offsetX ,offsetY;
+    if (el.classList.contains("elem1")) {
+        offsetX = -15;
+        offsetY = -10;
+        displaceX = -10;
+        displaceY = 12;
+    }
+    else if (el.classList.contains("elem2")) {
+        offsetX = 20;
+        offsetY = -30;
+        displaceX = 12;
+        displaceY = 2;
+    }
+    else if (el.classList.contains("elem3")) {
+        offsetX = -20;
+        offsetY = 20;
+        displaceX = -16;
+        displaceY = 10;
+    }
+    else if (el.classList.contains("elem4")) {
+        offsetX = 25;
+        offsetY = 30;
+        displaceX = 9;
+        displaceY = -8;
+    }
 	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
         console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
@@ -111,7 +144,7 @@ function mouseOrientation(e) {
             offsetY = 30;
             displaceX = -8;
             displaceY = 7;
-        }
+        };
 	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
         console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
