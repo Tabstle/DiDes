@@ -82,9 +82,12 @@ h3{
 } 
 @media screen and (max-width: 700px) {
     .title{
-        height: 80vh;
+        height: 82vh;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
         width: auto;
-        margin-top: -4vh;
+        margin-top: -2vh;
         flex-direction: column;
     }
 }
@@ -121,7 +124,6 @@ h3{
     margin-left: auto;
     margin-right: auto;
     z-index: 4;
-    width: 45%;
     border: 1px solid rgb(64, 217, 34);
 }
 @media screen and (max-width: 700px) {

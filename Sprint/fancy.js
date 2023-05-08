@@ -27,7 +27,7 @@ function mouseOrientation(e) {
 	const x = e.pageX;
 	const y = e.pageY;
 	
-	const target = window.querySelectorAll('.move');
+	const target = document.querySelectorAll('.move');
 
     target.forEach(el => {
         const targetCoords = el.getBoundingClientRect();
