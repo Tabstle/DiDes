@@ -39,8 +39,8 @@ function handleOrientation(event) {
     const gamma = event.gamma;
 
     target.forEach(el => {
-        const angleX = gamma/ 40;
-	    const angleY = beta/ -80;
+        const angleX = gamma/ 4;
+	    const angleY = beta/ -8;
         let offsetX ,offsetY;
         if (el.classList.contains("elem1")) {
             offsetX = -15;
