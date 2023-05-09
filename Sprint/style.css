@@ -19,7 +19,6 @@ body{
 
 h1{
     font-family: 'Aldrich', sans-serif;
-    /*font-family: 'Chathura', sans-serif;*/
     text-align: center;
     line-height: 0;
     color: white;
@@ -53,6 +52,7 @@ h2{
         width: 100%;
         position: absolute;
         left: 50%;
+        bottom: -1vh;
         transform: translate(-50%);
     }
 }
@@ -67,7 +67,10 @@ h2{
 h3{
     display: block;
     font-family: 'Chathura', sans-serif;
+    line-height: 0%;
     font-size: 3.5vh;
+    margin-top: 0%;
+    margin-bottom: 0%;
     line-height: 0;
     padding: none;
     color: white;
@@ -76,9 +79,11 @@ h3{
 }
 
 .header{
-    position: relative;
+    position: block;
     width: auto;
     display: flex;
+    margin-top: 2vh;
+    height: 3vh;
     justify-content: space-between;
     /*border: 1px solid rgb(64, 217, 34);*/
 }
@@ -97,7 +102,7 @@ h3{
         height: 82vh;
         margin-left: auto;
         margin-right: auto;
-        overflow: hidden;
+        overflow: inherit;
         width: auto;
         margin-top: -2vh;
         flex-direction: column;
@@ -165,4 +170,120 @@ img{
 	100% {
 		transform: translatey(0px);
 	}
+}
+
+/*QUOTE*/
+
+.quote{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    overflow: hidden; 
+    /*border: 1px solid rgb(64, 217, 34);"*/
+}
+@media screen and (max-width: 700px) {
+    .quote{
+        flex-direction: column;
+        rotate: 0deg;
+        height: 45vh;
+        width: 40vw;
+        transform-origin: top right;
+        right: 0vh;
+        top: 45vh;
+    }
+}
+@media screen and (min-width: 700px) {
+    .quote{
+        flex-direction: column;
+        rotate: -90deg;
+        height: 40vw;
+        width: 30vh;
+        transform-origin: bottom left;
+        left: 98vw;
+        bottom: 15vh;
+        transform: translateX(-50%);
+    }
+}
+
+.text{
+    width: 25vh;
+    /*border: 1px solid rgb(64, 217, 34);*/
+}
+@media screen and (max-width: 700px) {
+    .text{
+        width: 40vw;
+    }
+}
+
+.textM{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    transition: transform 3s ease-out 0s;
+}
+@media screen and (max-width: 700px) {
+    .textM {
+        transform: translateX(-19vh);
+        width: 40vw;
+        animation: slide 15s ease-in-out infinite forwards;
+        flex-direction: row-reverse;
+    }
+}
+@media screen and (min-width: 700px) {
+    .textM {
+        transform: translateX(-19vh);
+        width: 25vh;
+    }
+}
+@media screen and (max-width: 700px) {
+    .quote :nth-child(2) .textM{
+        animation-delay: 0.5s;
+    }
+    .quote :nth-child(3) .textM{
+        animation-delay: 1s;
+    }
+    .quote :nth-child(4) .textM{
+        animation-delay: 1.5s;
+    }
+    .quote :nth-child(5) .textM{
+        animation-delay: 2s;
+    }
+    .quote :nth-child(6) .textM{
+        animation-delay: 2.5s;
+    }
+}
+
+  
+.text:hover .textM{
+    transform: translateX(0vh);
+    /*animation-play-state: running;*/
+}
+  
+@media screen and (max-width: 700px) {
+    @keyframes slide {
+        0% {transform: translateX(14vh);}
+        10% {transform: translateX(14vh);}
+        30% {transform: translateX(0vh);}
+        60% {transform: translateX(0vh);}
+        80% {transform: translateX(14vh);}
+        100% {transform: translateX(14vh);}
+    }
+}
+
+
+p{
+    margin-top: 0%;
+    margin-bottom: 0%;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    font-family: 'Chathura', sans-serif;
+    font-size: 5vh;
+    color: white;
+    line-height: 5vh;
+}
+@media screen and (max-width: 700px) {
+    p {
+        font-size: 8vw;
+        line-height: 8vw;
+    }
 }
