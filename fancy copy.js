@@ -5,7 +5,7 @@ window.mobileCheck = function () {
     })(navigator.userAgent || navigator.vendor || window.opera);
     return check;
 };
-var mFirstLoad = true;
+mFirstLoad = true;
 isMobile = window.mobileCheck();
 if (isMobile){
     allowance();
@@ -32,7 +32,7 @@ function allowance() {
     }
   };
 
-var animOut = false;
+  let animOut = false;
 function handleOrientation(event) {
     const alpha = event.alpha;
     const beta = event.beta;
@@ -84,7 +84,7 @@ function handleOrientation(event) {
 
     const target = document.querySelectorAll('.move');
     target.forEach(el => {
-        var offsetX ,offsetY;
+        let offsetX ,offsetY;
         if (el.classList.contains("elem1")) {
             offsetX = -15;
             offsetY = -10;
@@ -130,7 +130,7 @@ function mouseOrientation(e) {
 	    const targetY = targetCoords.top + (el.offsetHeight / 2);
         const angleX = (targetY - y) / 40;
 	    const angleY = (targetX - x) / -80;
-        var offsetX ,offsetY;
+        let offsetX ,offsetY;
         if (el.classList.contains("elem1")) {
             offsetX = -15;
             offsetY = -10;
