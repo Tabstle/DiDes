@@ -8,7 +8,7 @@ window.mobileCheck = function () {
 mFirstLoad = true;
 isMobile = window.mobileCheck();
 if (isMobile){
-    window.addEventListener('deviceorientation', handleOrientation, true)
+    allowance();
 }
 else{
     window.addEventListener('mousemove', mouseOrientation);
@@ -20,7 +20,7 @@ function allowance() {
       DeviceMotionEvent.requestPermission()
         .then((state) => {
           if (state === 'granted') {
-            window.addEventListener('deviceorientation', handleOrientation);
+            window.addEventListener('deviceorientation', handleOrientation, true);
           } else {
             console.error('Request to access the orientation was rejected');
           }
@@ -28,7 +28,7 @@ function allowance() {
         .catch(console.error);
     } else {
       // Handle regular non iOS 13+ devices.
-      window.addEventListener('deviceorientation', handleOrientation);
+      window.addEventListener('deviceorientation', handleOrientation, true);
     }
   };
 
