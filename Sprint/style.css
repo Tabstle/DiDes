@@ -30,7 +30,7 @@ h1{
 }
 @media screen and (max-width: 700px) {
     h1{
-        font-size: 15vh;
+        font-size: 20vh;
     }
 }
 @media screen and (min-width: 700px) {
@@ -95,11 +95,11 @@ h3{
     align-content: center;
     align-items: center;
     perspective: 800px;
-    /*border: 1px solid rgb(64, 217, 34);*/;
+    /*border: 1px solid rgb(64, 217, 34);*/
 } 
 @media screen and (max-width: 700px) {
     .title{
-        height: 82vh;
+        height: 90vh;
         margin-left: auto;
         margin-right: auto;
         overflow: inherit;
@@ -219,13 +219,15 @@ img{
     display: flex;
     justify-content: space-between;
     background-color: black;
-    transition: transform 3s ease-out 0s;
+    transition: 1s transform ease-in-out;
+}
+.textM.active{
+    transform: translateX(0vh);
 }
 @media screen and (max-width: 700px) {
     .textM {
-        transform: translateX(-19vh);
+        transform: translateX(14vh);
         width: 40vw;
-        animation: slide 15s ease-in-out infinite forwards;
         flex-direction: row-reverse;
     }
 }
@@ -233,23 +235,24 @@ img{
     .textM {
         transform: translateX(-19vh);
         width: 25vh;
+        transition: transform 3s ease-out 0s;
     }
 }
 @media screen and (max-width: 700px) {
     .quote :nth-child(2) .textM{
-        animation-delay: 0.5s;
+        transition-delay: 0.5s;
     }
     .quote :nth-child(3) .textM{
-        animation-delay: 1s;
+        transition-delay: 1s;
     }
     .quote :nth-child(4) .textM{
-        animation-delay: 1.5s;
+        transition-delay: 1.5s;
     }
     .quote :nth-child(5) .textM{
-        animation-delay: 2s;
+        transition-delay: 2s;
     }
     .quote :nth-child(6) .textM{
-        animation-delay: 2.5s;
+        transition-delay: 2.5s;
     }
 }
 
@@ -262,11 +265,9 @@ img{
 @media screen and (max-width: 700px) {
     @keyframes slide {
         0% {transform: translateX(14vh);}
-        10% {transform: translateX(14vh);}
-        30% {transform: translateX(0vh);}
-        60% {transform: translateX(0vh);}
-        80% {transform: translateX(14vh);}
-        100% {transform: translateX(14vh);}
+        20% {transform: translateX(14vh);}
+        80% {transform: translateX(0);}
+        100% {transform: translateX(0);}
     }
 }
 

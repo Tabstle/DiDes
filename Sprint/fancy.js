@@ -5,14 +5,85 @@ window.mobileCheck = function () {
     })(navigator.userAgent || navigator.vendor || window.opera);
     return check;
 };
-
+mFirstLoad = true;
 isMobile = window.mobileCheck();
 if (isMobile){
-    
-    const target = document.querySelectorAll('.move');
+    window.addEventListener('deviceorientation', handleOrientation, true)
+}
+else{
+    window.addEventListener('mousemove', mouseOrientation);
+};
 
+function allowance() {
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      // Handle iOS 13+ devices.
+      DeviceMotionEvent.requestPermission()
+        .then((state) => {
+          if (state === 'granted') {
+            window.addEventListener('deviceorientation', handleOrientation);
+          } else {
+            console.error('Request to access the orientation was rejected');
+          }
+        })
+        .catch(console.error);
+    } else {
+      // Handle regular non iOS 13+ devices.
+      window.addEventListener('deviceorientation', handleOrientation);
+    }
+  };
+
+  let animOut = false;
+function handleOrientation(event) {
+    const alpha = event.alpha;
+    const beta = event.beta;
+    const gamma = event.gamma;
+
+    if (mFirstLoad){
+        mFirstBeta = event.beta;
+        mFirstGamma = event.gamma;
+        mFirstLoad = false;
+    }
+
+    const angleX = (beta - mFirstBeta);
+    const angleY = (gamma - mFirstGamma);
+    const quote = document.querySelectorAll('.textM');
+    var animationActive = false;
+    var startTime;
+    
+    console.log(angleY);
+    if (angleY < (-10) && !animOut) {
+        if (!animationActive) {
+            quote.forEach(el => {
+                el.classList.add("active");
+            animationActive = true;
+            startTime = new Date().getTime();
+            animOut = true;
+            console.log("we out!");
+            })
+        }
+    } else if (angleY > 10 && animOut) {
+        if (!animationActive) {
+            quote.forEach(el => {
+                el.classList.remove("active");
+            });
+            animationActive = true;
+            startTime = new Date().getTime();
+            console.log("we in!");
+        }
+        animOut = false;
+    } else {
+        animationActive = false;
+    }
+    if (animationActive){
+        if (new Date().getTime() - startTime > 5050) {
+            animationActive = false;
+        }
+    }
+    
+    
+
+    const target = document.querySelectorAll('.move');
     target.forEach(el => {
-        const targetCoords = el.getBoundingClientRect();
         let offsetX ,offsetY;
         if (el.classList.contains("elem1")) {
             offsetX = -15;
@@ -38,69 +109,8 @@ if (isMobile){
             displaceX = 9;
             displaceY = -8;
         }
-        el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX ) + 'deg) rotateY('+ (offsetY ) + 'deg)';
-        console.log('rotateX('+ (offsetX) + 'deg) rotateY('+ (offsetY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)');
-    });
-}
-else{
-    window.addEventListener('mousemove', mouseOrientation);
-};
-
-function allowance() {
-    if (typeof DeviceMotionEvent.requestPermission === 'function') {
-      // Handle iOS 13+ devices.
-      DeviceMotionEvent.requestPermission()
-        .then((state) => {
-          if (state === 'granted') {
-            window.addEventListener('devicemotion', handleOrientation);
-          } else {
-            console.error('Request to access the orientation was rejected');
-          }
-        })
-        .catch(console.error);
-    } else {
-      // Handle regular non iOS 13+ devices.
-      window.addEventListener('devicemotion', handleOrientation);
-    }
-  };
-
-
-function handleOrientation(event) {
-    const alpha = event.alpha;
-    const beta = event.beta;
-    const gamma = event.gamma;
-
-    const target = document.querySelectorAll('.move');
-
-    target.forEach(el => {
-        const targetCoords = el.getBoundingClientRect();
-    let offsetX ,offsetY;
-    if (el.classList.contains("elem1")) {
-        offsetX = -15;
-        offsetY = -10;
-        displaceX = -10;
-        displaceY = 12;
-    }
-    else if (el.classList.contains("elem2")) {
-        offsetX = 20;
-        offsetY = -30;
-        displaceX = 12;
-        displaceY = 2;
-    }
-    else if (el.classList.contains("elem3")) {
-        offsetX = -20;
-        offsetY = 20;
-        displaceX = -16;
-        displaceY = 10;
-    }
-    else if (el.classList.contains("elem4")) {
-        offsetX = 25;
-        offsetY = 30;
-        displaceX = 9;
-        displaceY = -8;
-    }
-	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
-        console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
+        el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
+        //console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
     })
 };
@@ -145,7 +155,7 @@ function mouseOrientation(e) {
             displaceX = -8;
             displaceY = 7;
         };
-	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
+	    el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX - angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
         console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
     })
