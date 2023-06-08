@@ -51,7 +51,7 @@ function handleOrientation(event) {
     var startTime;
     
     console.log(angleY);
-    if (angleY < (-10) && !animOut) {
+    if (angleY < (-20) && !animOut) {
         if (!animationActive) {
             quote.forEach(el => {
                 el.classList.add("active");
@@ -61,7 +61,7 @@ function handleOrientation(event) {
             console.log("we out!");
             })
         }
-    } else if (angleY > 10 && animOut) {
+    } else if (angleY > 20 && animOut) {
         if (!animationActive) {
             quote.forEach(el => {
                 el.classList.remove("active");
