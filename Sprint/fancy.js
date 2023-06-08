@@ -109,7 +109,7 @@ function handleOrientation(event) {
             displaceX = 9;
             displaceY = -8;
         }
-        el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
+        el.style.transform = 'translate('+ (displaceX) + 'vw,'+ (displaceY) + 'vw) rotateX('+ (offsetX - angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg)';
         //console.log('rotateX('+ (offsetX + angleX) + 'deg) rotateY('+ (offsetY + angleY) + 'deg) translate('+ (displaceX) + '%,'+ (displaceY) + '%)')
         //console.log(`rotateX(${angleX}deg) rotateY(${angleY}deg)`)
     })
